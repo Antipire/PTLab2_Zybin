@@ -27,9 +27,7 @@ def check_buys_count():
         if value % 10 == 0:
             product_object = Product.objects.filter(name=key).first()
             old_price = product_object.price
-            Product.objects.filter(name=key).update(price=old_price * 1.15)
-
-    print(products_count_in_purchase_list)
+            Product.objects.filter(name=key).update(price=old_price + old_price * 0.15)
 
 
 class PurchaseCreate(CreateView):
